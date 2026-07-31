@@ -1,0 +1,7 @@
+#Working and Scheduling
+-Deployment history
+
+#Issue
+-There were multiple rollbacks and rolling updates. Need to detect image used in third revision.
+#Action
+-'kubectl rollout history deployment/video-app --revision=3'
