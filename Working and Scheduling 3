@@ -1,0 +1,37 @@
+#Workloads and Scheduling
+- Deployment issue
+
+#Symptoms
+-'kubectl get pods -l app=my-app -w' get stuck until terminate.
+#Detected cause
+-Later I realized that it is just displaying the pods. Since there are no pods it is stuck.
+
+#Action
+-nano my-app-deployment.yaml
+#Symptoms
+-Assigned memory and  cpu were larger than limit.
+
+
+#Action
+-Get pods again
+#Symptoms
+-Still no result for 'kubectl get pods -l app=my-app -w'
+
+#Action
+-Reduced both assigned and limit of memory and cpu further which were of equal value.
+#Symptoms
+-Pods started pending.
+#Detected cause
+-Earlier because limit was smaller than requirements it didnt even pend. Now it pend.
+
+#Action
+-Reduce resources further.
+#Symptoms
+-One pod started running. Another two pending which is abnormal since there are only two replicas.
+#Detected cause
+-Later I cam to know until new pod is correctly deployed old  pods remain pending. And since one pod already deployed issue seems to be with resources. Once I reduce resources to make room for both it should work.
+
+#Action
+-Reduce resources furthur.
+#Redult
+-Both pods are working.
