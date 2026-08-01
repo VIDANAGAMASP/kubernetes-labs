@@ -1,0 +1,15 @@
+#Troubleshooting 3
+-Detect issue with service and nginx pod
+
+#Action
+-'kubectl port-forward svc/nginx-service 8080:80' connect service port to pod port' Then curl to the url.
+#Observation
+-Failed to connect.
+#Cause
+-Pretty obvious service and nginx pod not connected.
+
+#Action
+-kubectl get pods nginx-pod. label it.'kubectl label pod nginx-pod app=nginx'. Then add it to service.'kubectl expose pod nginx-pod --name=nginx-service --port=80 --target-port=80'
+'kubectl expose pod nginx-pod --name=nginx-service --port=80 --target-port=80'. 'kubectl get endpoints nnginx-service.
+#Observation
+-curl successful.
