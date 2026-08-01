@@ -1,0 +1,27 @@
+#Troubleshooting
+-PVC volume can't be created
+
+#Action
+-'kubectl describe pvc my-pvc'
+#Observation
+-Provisioning failed due to invalid storageclass
+
+#Action
+-See available storage classes. 'kubectl get storageClass'
+#Observation
+-Found an available storage class
+
+#Action 
+-Edited pvc.yaml and re deployed but it is immutable. So deleted and re deployed.
+#Observation
+-No node to bind to.
+
+#Action
+-Tried to set waitForFirstConsumer to Immediate.
+#Observation
+-Still ask for a node.
+
+#Action
+-Reset and apply. Create a dummy pod adn bind pvc to it
+#Observation
+-PVC was created
