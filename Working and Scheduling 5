@@ -1,0 +1,31 @@
+#Workloads and Scheduling
+
+#Task
+-Deployment with pods using image redis 7.0.13 and maximum unavailability when rolling update is 30% and maximum surge is 45% and later change the image to redis 7.2.1
+
+#Action
+-'kubectl create deployment cache-deployment --image=redis:7.0.13 --replicas=2 --dry-run=client -o yaml > deployment.yaml' to generate a template. Then edit strategy segment.
+-Inspected the pods using 'kubectl get pods -l app=cache -w'
+#Symptoms
+-Pods were not there.
+
+#Action
+-Inspected local deployment.yaml
+#Observations
+-The pods were stamped cache-deployment instead of app=cache
+
+#Action
+-Correcte it and re deployed.
+#Symptpoms
+-Failed. Shown that matchlabel field is immutable.
+
+#Action
+-deleted the deployed yaml object. 'kubectl delete -f deployment.yaml'
+
+#Action 
+-re deployed correct file and view pod status.
+#Observation
+-Pods were correctly running.
+
+#Action
+-change image 'kubectl set image deployment/cache-deployment redis=redis:7.2.1'
