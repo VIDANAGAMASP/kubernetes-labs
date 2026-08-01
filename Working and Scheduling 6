@@ -1,0 +1,10 @@
+#Working and Scheduling 6
+-Scale deplyment
+
+#Action
+-'kubectl get pods -n redis-ns' investigate whether pods are running
+#Observation
+-Pods are running
+
+#Action
+-'kubectl scale deployment redis-deploy --replicas=3 -n redis-ns'
