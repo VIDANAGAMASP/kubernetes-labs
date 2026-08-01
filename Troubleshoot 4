@@ -1,0 +1,7 @@
+#Troubleshoot
+-Tainted node have to adjust pod specification.
+
+#Action
+-'kubectl describe node node01' get the taints and add it to pod yaml
+#Observation
+-pod deploy
