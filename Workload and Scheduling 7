@@ -1,0 +1,32 @@
+#Working and Scheduling
+-Deployment, secret
+
+#Task
+-Create a secret to store environment variables and add it to container secrets of pod
+
+#Action
+-Create a generic secret object.'kubectl create secret generic db-secret --from-literal=DB_Host=mysql_host'
+
+#Action
+-'kubectl get secret db_secret'
+#Observation
+-Secrets created
+
+#Action
+-Add the secrets to deployment. Get deployment yaml and edit it.
+ spec:
+   containers:
+   - name:webapp
+   envFrom:
+   - secretRef:
+     name=DB_Host
+#Symptom
+-Not created. Got a structure error.
+#Cause
+-I assumed envFrom should be another dictionary at the level of containers though it made more sense for it to be under containerrs since yaml has list or dictionary and   list should start with - and
+ dictionary should start with key. containers is clearly a list but envFrom is a key. Later i learned the - is dictionary name and envFrom are key s of it.
+
+#Action
+-Corrected indentation
+#Observation
+-Deployment worked.
