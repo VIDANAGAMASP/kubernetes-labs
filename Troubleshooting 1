@@ -1,0 +1,10 @@
+#Troubleshooting 1
+-Service account,role and role binding issue
+
+#Action
+-'kubectl create role role1 --verb=create,list --resources=servicaes --as=service-account'service account, role, binding already created had to add new permissions.
+
+#Action
+-'kubectl auth can-i create services --as=system:serviceaccount:default:prod-sa'
+#Observation
+-yes so permissions are now allowed to the account. so application has these permissions now.
