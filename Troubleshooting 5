@@ -1,0 +1,7 @@
+#Troubleshooting
+-postgres pod not deployed
+
+#Action
+-nano postgres.yaml
+#Obserrvation
+-liveliness probe has command aside from port which is incorrect. readyness probe missed -d database flags of command which selected a specific database to execute query.
