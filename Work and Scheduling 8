@@ -1,0 +1,16 @@
+#Work and Scheduling
+-configmap
+
+#Task
+-Create a configmap and attach to pod
+
+#Action
+-'kubectl create configmap firstconfigmap --from-literal=application=key'
+
+#Action
+- Get deployment and edit
+  env:
+  - name: Applicaion
+    configMapKeyRef: 
+      name: firstconfigmap
+      key: application
