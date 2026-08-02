@@ -1,0 +1,5 @@
+#Storage
+-Resize a pvc
+
+#Action
+-Check StorageClass and see awhether expansion allowed then get pvc yaml file and update it and deploy it.
