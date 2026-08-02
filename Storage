@@ -1,0 +1,14 @@
+#Storage
+-Create storage class
+
+#Action
+-kubectk create storageclass s -o yaml>a.yaml
+#Observation
+-Failiure.
+#Cause
+-Imperatively couldn't create StorageClass.
+
+#Action
+-Get a template from google and adjust parameters provisioner, reclaimPolicy, volumeBindingMode to given provisioner name, delete and waitForFirstCustomer
+#Observation
+-Success
