@@ -1,0 +1,7 @@
+#Storage 3
+-Create a pvc using an existing pv
+
+#Action
+-Make sure pv and pvc have same storage class by getting both files. Edit storage value of yaml template for pvc and accessMode to readWriteOnce. Then add pv name to pvc under volumeName key
+#Observation
+-Success created pvc using already available pv.
