@@ -1,0 +1,11 @@
+#Networrk and Service
+-Create a deployment and expose pos to outside world via a service.
+
+#Action
+-Create the deployment as specified. Then create a service object with target port as port intended to recieve traffic by pod and nodePort as target port which is going to deliver 
+ traffic to this pod andd recieve traffic from outside world. 
+
+#Action
+-Get an ip of a vm and using thst ip and port name . 'curl ip@port' to see whether working.
+#Observation
+-It is working.
