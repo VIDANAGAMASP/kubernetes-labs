@@ -1,0 +1,10 @@
+#Network and Service
+-Create a replicaset and execute an instruction within a pod
+
+#Action
+-Get a replicaset temlate and adjust labels, set image and add commands and args "/bin/sh -c "sleep 3600" to sleep the container for hour.
+#observation
+-Succesfully created.
+
+#Action
+-'kubectl get pods' to find a pod id. 'kubectl exec pod-name command' to execcute the given command in the lab within the pod'
