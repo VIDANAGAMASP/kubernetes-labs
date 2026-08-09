@@ -1,0 +1,40 @@
+#Action
+-Download kkubectl
+
+#Action
+-'sudo k3s kubectl create serviceaccount admin-sa --namespace kube-system' Create service account. 
+-'Create a role and bind to it. 'sudo k3s kubectl create clusterrolebinding admin-sa-admin-binding --clusterrole=cluster-admin --serviceaccount=kube-system:admin-sa'
+-Generate a token sudo k3s kubectl apply -f - <<EOF
+apiVersion: v1
+kind: Secret
+metadata:
+  name: admin-sa-token
+  namespace: kube-system
+  annotations:
+    kubernetes.io/service-account.name: admin-sa
+type: kubernetes.io/service-account-token
+EOF
+-Get token 'sudo k3s kubectl get secret admin-sa-token -n kube-system -o jsonpath='{.data.token}' | base64 --decode'
+-Add .kube/config with apiVersion: v1
+kind: Config
+preferences: {}
+
+clusters:
+- cluster:
+    insecure-skip-tls-verify: true
+    server: https://IP:6443
+  name: azure-k3s-cluster
+
+users:
+- name: admin-sa-user
+  user:
+    token: 
+
+contexts:
+- context:
+    cluster: azure-k3s-cluster
+    user: admin-sa-user
+    namespace: default
+  name: azure-admin-context
+
+current-context: azure-admin-context
