@@ -1,0 +1,24 @@
+#Action
+-'sudo cat /var/lib/rancher/k3s/server/node-token' Get token
+
+#Action
+-Add token and ip when install k3 in client node. 'curl -sfL https://get.k3s.io | K3S_URL=https://<MASTER_IP>:6443 K3S_TOKEN=<NODE_TOKEN> sh -'
+
+#Action
+-SSH into master vm and get 'sudo cat /etc/rancher/k3s/k3s.yaml' and paster the file to .kube/config of the newly created node
+
+#Observation
+-Still it try to reach localhost.
+#Conclusion
+-ip in the config file should be wrong.
+
+#Action
+-Change ip to ip of vm running master.
+
+#Action
+-'kubectl get nodes'
+#Observation
+-It works
+
+
+
