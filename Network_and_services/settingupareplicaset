@@ -1,0 +1,4 @@
+#Action
+- Create a deployment file template 'kubectl create deployment dns-rs-cka --image=registry.k8s.io/e2e-test-images/jessie-dnsutils:1.3 --replicas=2 --dry-run=client -o yaml > a.yaml'
+#Action edit container name and commands
+#Action apply and login to pod using exec. 'kubectl exec <pod-name> -- nslookup kubernetes.default > dns-output.txt'
