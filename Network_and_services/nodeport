@@ -1,0 +1,4 @@
+#Action
+- create a template. 'kubectl create service nodeport my-web-app-service --tcp=80:80 --dry-run=client -o yaml > service.yaml'
+#Action
+- Edit and add nodePort.
